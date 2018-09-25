@@ -3,4 +3,5 @@
     <dimen name="text_margin_top">128dp</dimen>
     <dimen name="edit_text_margin_top">4dp</dimen>
     <dimen name="button_margin">10dp</dimen>
+    <dimen name="listview_padding_left">15dp</dimen>
 </resources>
