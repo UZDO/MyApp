@@ -10,14 +10,14 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ListAdapter extends BaseAdapter {
-    Context ctx;
-    LayoutInflater lInflater;
-    ArrayList<Person> objects;
+    private Context context;
+    private LayoutInflater layoutInflater;
+    private ArrayList<Person> objects;
 
     ListAdapter(Context context, ArrayList<Person> persons) {
-        ctx = context;
+        this.context = context;
         objects = persons;
-        lInflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     // кол-во элементов
@@ -38,24 +38,24 @@ public class ListAdapter extends BaseAdapter {
         return position;
     }
 
-    // человек по позиции
-    Person getPerson(int position) {
-        return ((Person) getItem(position));
-    }
-
     // пункт списка
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // используем созданные, но не используемые view
         View view = convertView;
         if (view == null) {
-            view = lInflater.inflate(R.layout.list_item, parent, false);
+            view = layoutInflater.inflate(R.layout.list_item, parent, false);
         }
-        Person p = getPerson(position);
+        Person person = getPerson(position);
         // заполняем View в пункте списка данными: имя, возраст
-        ((TextView) view.findViewById(R.id.textviewName)).setText(p.name);
-        ((TextView) view.findViewById(R.id.textviewOld)).setText(p.old);
+        ((TextView) view.findViewById(R.id.textviewName)).setText(person.getName());
+        ((TextView) view.findViewById(R.id.textviewOld)).setText(person.getOld());
         return view;
 
+    }
+
+    // человек по позиции
+    private Person getPerson(int position) {
+        return ((Person) getItem(position));
     }
 }
