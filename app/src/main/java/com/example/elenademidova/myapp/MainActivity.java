@@ -1,6 +1,5 @@
 package com.example.elenademidova.myapp;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,8 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        Textview = (TextView) findViewById(R.id.TextView);
+        Textview = (TextView) findViewById(R.id.textView);
         editText = (EditText) findViewById(R.id.editText);
         ButtonOK = (Button) findViewById(R.id.buttonOK);
 
